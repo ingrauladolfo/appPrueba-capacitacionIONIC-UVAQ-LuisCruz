@@ -1,0 +1,48 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-icon size="large" name="menu"></ion-icon>
+      </ion-col>
+      <ion-col size="2">
+        <ion-avatar>
+          <img src="https://ui-avatars.com/api/?name=Raúl+Adolfo" />
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>Hey, Juan!</h1>
+        <h3 style="color: grey">
+          Checa estos lugares increíbles para visitar.
+        </h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-segment>
+          <ion-segment-button value="user"> Comida </ion-segment-button>
+          <ion-segment-button value="card"> Conciertos </ion-segment-button>
+          <ion-segment-button value="change"> Vacaciones </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h4>Lugares a visitar</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let info of informacionTodo">
+      <ion-col>
+        <ion-card [routerLink]="['/card-detail', info.id]">
+          <img [src]="info.image" />
+          <ion-card-header>
+            <ion-card-subtitle> {{info.tipo}} </ion-card-subtitle>
+            <ion-card-title> {{info.titulo}} </ion-card-title>
+          </ion-card-header>
+          <ion-card-content> {{info.descripcion}} </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
